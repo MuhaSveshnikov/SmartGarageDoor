@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garage Door Control</title>
+
+  <!-- Include Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJv+5Y1+Po1Xsa9IQiWOk3JtdneIt6jISxX14I8XlZoMLZKHq3AY1qlP9K9g" crossorigin="anonymous">
+
+  <style>
+    /* Custom styles for the animation and layout */
+    #garage {
+      width: 200px; /* Increased width */
+      height: 250px;
+      position: relative;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .door-section {
+      position: absolute;
+      width: 100%; /* Full width of garage */
+      height: 23%; /* Adjust height to fit with spacing */
+      background-color: #55c8f6;
+      transition: height 1s ease;
+      margin-bottom: 5px; /* Add space between sections */
+    }
+
+    .door-section:nth-child(1) { top: 0; }
+    .door-section:nth-child(2) { top: 28%; }
+    .door-section:nth-child(3) { top: 56%; }
+    .door-section:nth-child(4) { top: 84%; }
+
+    /* Centering content */
+    .container {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #auth-section, #garage-section {
+      text-align: center;
+    }
+
+    /* Customize buttons and text */
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      margin: 10px;
+    }
+
+    #googleSignInBtn {
+      background-color: #4285F4;
+      border-color: #4285F4;
+    }
+
+    #openCloseBtn {
+      background-color: #FF9800;
+      border-color: #FF9800;
+    }
+
+    /* Optional: Add rounded corners for the garage sections */
+    .door-section {
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="auth-section">
+      <h1 class="text-primary">Garage Door Control</h1>
+      <button id="googleSignInBtn" class="btn btn-primary btn-lg">Sign in with Google</button>
+    </div>
+
+    <div id="garage-section" style="display:none;">
+      <button id="openCloseBtn" class="btn btn-warning btn-lg">Open/Close</button>
+      <div id="garage">
+        <div class="door-section"></div>
+        <div class="door-section"></div>
+        <div class="door-section"></div>
+        <div class="door-section"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include Firebase and Bootstrap JS -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
